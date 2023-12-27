@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Schedule</title>
+</head>
+<body>
+    <h2>Create Schedule</h2>
+
+    <form th:action="@{/schedule/create}" method="post" th:object="${schedule}">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        
+        <label for="day">Day:</label>
+        <input type="date" th:field="*{day}" required>
+        <br>
+
+        <label for="startTime">Start Time:</label>
+        <input type="time" th:field="*{startTime}" required>
+        <br>
+
+        <label for="endTime">End Time:</label>
+        <input type="time" th:field="*{endTime}" required>
+        <br>
+
+        <button type="submit">Create Schedule</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Owner Signup</title>
+</head>
+
+<body>
+    <h2>Business Owner Signup</h2>
+
+    <form th:action="@{/signup/business-owner}" method="post" th:object="${businessOwner}">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <label for="username">Username:</label>
+
+        <input type="text"  th:field="*{username}">
+        <span class="validationError" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">UserName
+            Error</span>
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password"  th:field="*{password}">
+        <span class="validationError" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password
+            Error</span>
+        <br>
+
+        <label for="email">Email:</label>
+        <input  th:field="*{email}" type="email" name="email">
+        <span class="validationError" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email
+            Error</span>
+        <br>
+
+        <label for="fullname">Full Name:</label>
+        <input type="text"   th:field="*{fullname}">
+        <span class="validationError" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}">FullName
+            Error</span>
+        <br>
+
+        <label for="city">City:</label>
+        <input type="text"  th:field="*{city}">
+        <span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City
+            Error</span>
+        <br>
+
+        <label for="phone">PhoneNumber:</label>
+        <input type="text"  th:field="*{phone}">
+        <span class="validationError" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone
+            Number
+            Error</span>
+        <br>
+
+        <label for="serviceType">Service Type:</label>
+        <select id="serviceType"  th:field="*{serviceType}">
+        <option th:each="sType : ${serviceType}" th:value="${sType}" th:text="${sType}">SERVICE_TYPE</option>
+        </select>
+        <br>
+
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+
+</html>

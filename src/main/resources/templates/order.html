@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation System</title>
+    <!-- Add your CSS stylesheets and any additional dependencies here -->
+    <link rel="stylesheet" href="path/to/your/style.css">
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+    <h1>Welcome to Our Reservation System</h1>
+    <p>Book your spot with ease!</p>
+</header>
+
+<!-- Main Content Section -->
+<main>
+    <section class="reservation-form">
+        <h2>Make a Reservation</h2>
+        <form action="/reserve" method="post">
+            <!-- Add your form fields here -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="submit">Reserve Now</button>
+        </form>
+    </section>
+
+    <!-- Add more sections or information as needed -->
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2023 Reservation System. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

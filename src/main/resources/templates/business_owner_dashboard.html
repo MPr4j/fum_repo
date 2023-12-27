@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Owner Dashboard</title>
+</head>
+
+<body>
+    <h2>Welcome, Business Owner!</h2>
+
+    <h3>Your Services</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Service Name</th>
+                <th>Available Times</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the services -->
+            <tr th:each="service : ${services}">
+                <td th:text="${service.name}"></td>
+                <td>
+                    <ul>
+                        <!-- Loop through the schedules for each service -->
+                        <li th:each="schedule : ${service.schedules}">
+                            <span th:text="${schedule.day}"></span>:
+                            <span th:text="${schedule.startTime}"></span> -
+                            <span th:text="${schedule.endTime}"></span>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/business-owner/schedule/create}" class="btn btn-primary">Create New Schedule</a>
+</body>
+
+</html>

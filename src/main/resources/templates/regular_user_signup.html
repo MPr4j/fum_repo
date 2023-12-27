@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular User Signup</title>
+</head>
+<body>
+    <h2>Regular User Signup</h2>
+
+    <form th:action="@{/signup/regular-user}" method="post" th:object="${regularUser}">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <span class="validationError" th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="color: red;">Username</span>
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <span class="validationError" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password
+            Error</span>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="validationError" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email
+            Error</span>
+        <br>
+
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+        <span class="validationError" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}">FullName
+            Error</span>
+        <br>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+        <span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City
+            Error</span>
+        <br>
+
+        <label for="phone">PhoneNumber:</label>
+        <input type="text"  th:field="*{phone}">
+        <span class="validationError" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone
+            Number
+            Error</span>
+        <br>
+
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+</html>
